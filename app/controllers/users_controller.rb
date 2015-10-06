@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+<<<<<<< HEAD
     
   def followings
     @user = User.find(params[:followed_id])
@@ -39,6 +40,18 @@ class UsersController < ApplicationController
     current_user.show(@user)
   end
     
+=======
+  
+  def followings
+     @user = User.find(params[:id])
+     @followings = @user.following_users
+  end
+  def followers
+     @user = User.find(params[:id])
+     @followers = @user.follower_users
+  end
+  
+>>>>>>> master
   private
 
   def user_params
