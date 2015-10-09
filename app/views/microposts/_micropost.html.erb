@@ -1,5 +1,5 @@
-<li id="micropost-<%= micropost.id %>">
-  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+<li id="micropost-<%= micropost.id %>" class="clearfix”>
+  <%= link_to gravatar_for(micropost.user, size: 10), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content"><%= micropost.content %></span>
   <span class="timestamp">
@@ -7,6 +7,8 @@
     <% if current_user == micropost.user %>
       <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>
+      <%= link_to "super delete", micropost, method: :superdelete,
+                                       data: { confirm: "Maybe it's other user's message, do you understand?" } %>
     <% end %>
   </span>
 </li>
