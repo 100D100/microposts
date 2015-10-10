@@ -8,7 +8,9 @@
       <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>
-    <%= link_to "super delete", micropost, method: :delete,
-                                       data: { confirm: "Maybe it's other user's message, do you understand?" } %>
+    <% if current_user != micropost.user %>
+    <%= link_to "try to delete", micropost, method: :delete,
+                                       data: { confirm: "It's not your micropost" } %>
+    <% end %>
   </span>
 </li>
